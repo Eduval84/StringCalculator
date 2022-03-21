@@ -1,3 +1,4 @@
+using System;
 using FluentAssertions;
 using Xunit;
 
@@ -5,22 +6,26 @@ namespace TestStringCalculator
 {
     public class StringCalculatorSpecs
     {
+
+        private readonly StringCalculator.StringCalculator _stringCalculator = new();
+        private string _givenInput;
+
         [Fact]
         public void StringEmptyShouldBe0()
         {
-            var stringCalculator = new StringCalculator.StringCalculator();
+            _givenInput = string.Empty;
 
-            var result = stringCalculator.Add("");
+            var result = _stringCalculator.Add(_givenInput);
 
             result.Should().Be(0);
         }
 
         [Fact]
-        public void String1ComaString2ShoudBe3()
+        public void String1ComaString2ShouldBe3()
         {
-            var stringCalculator = new StringCalculator.StringCalculator();
+            var givenInput = "1,2";
 
-            var result = stringCalculator.Add("1,2");
+            var result = _stringCalculator.Add(givenInput);
 
             result.Should().Be(3);
         }

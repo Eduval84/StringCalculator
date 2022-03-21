@@ -1,7 +1,4 @@
-﻿using System;
-using System.Security.AccessControl;
-
-namespace StringCalculator
+﻿namespace StringCalculator
 {
     public class StringCalculator
     {
