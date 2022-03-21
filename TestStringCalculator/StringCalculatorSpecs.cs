@@ -29,5 +29,15 @@ namespace TestStringCalculator
 
             result.Should().Be(3);
         }
+
+        [Fact]
+        public void AddCanReciveMultipleNumbers()
+        {
+            _givenInput = "1,2,3";
+
+            var result = _stringCalculator.Add(_givenInput);
+
+            result.Should().Be(6);
+        }
     }
 }
