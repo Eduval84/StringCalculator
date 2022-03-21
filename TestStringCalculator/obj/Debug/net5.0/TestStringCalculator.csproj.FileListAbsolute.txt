@@ -102,3 +102,6 @@ C:\Users\evalderrama\source\Cursos\Exeal\StringCalculator\TestStringCalculator\b
 C:\Users\evalderrama\source\Cursos\Exeal\StringCalculator\TestStringCalculator\bin\Debug\net5.0\System.Configuration.ConfigurationManager.dll
 C:\Users\evalderrama\source\Cursos\Exeal\StringCalculator\TestStringCalculator\bin\Debug\net5.0\System.Security.Cryptography.ProtectedData.dll
 C:\Users\evalderrama\source\Cursos\Exeal\StringCalculator\TestStringCalculator\bin\Debug\net5.0\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
+C:\Users\evalderrama\source\Cursos\Exeal\StringCalculator\TestStringCalculator\bin\Debug\net5.0\StringCalculator.exe
+C:\Users\evalderrama\source\Cursos\Exeal\StringCalculator\TestStringCalculator\bin\Debug\net5.0\StringCalculator.pdb
+C:\Users\evalderrama\source\Cursos\Exeal\StringCalculator\TestStringCalculator\bin\Debug\net5.0\StringCalculator.exe.config

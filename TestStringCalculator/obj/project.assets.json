@@ -1709,6 +1709,15 @@
         "build": {
           "build/netcoreapp2.1/xunit.runner.visualstudio.props": {}
         }
+      },
+      "StringCalculator/1.0.0": {
+        "type": "project",
+        "compile": {
+          "bin/placeholder/StringCalculator.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/StringCalculator.dll": {}
+        }
       }
     }
   },
@@ -6034,12 +6043,18 @@
         "xunit.runner.visualstudio.2.4.3.nupkg.sha512",
         "xunit.runner.visualstudio.nuspec"
       ]
+    },
+    "StringCalculator/1.0.0": {
+      "type": "project",
+      "path": "../StringCalculator/StringCalculator.csproj",
+      "msbuildProject": "../StringCalculator/StringCalculator.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net5.0": [
       "FluentAssertions >= 6.5.1",
       "Microsoft.NET.Test.Sdk >= 16.9.4",
+      "StringCalculator >= 1.0.0",
       "coverlet.collector >= 3.0.2",
       "xunit >= 2.4.1",
       "xunit.runner.visualstudio >= 2.4.3"
@@ -6077,7 +6092,11 @@
       "frameworks": {
         "net5.0": {
           "targetAlias": "net5.0",
-          "projectReferences": {}
+          "projectReferences": {
+            "C:\\Users\\evalderrama\\source\\Cursos\\Exeal\\StringCalculator\\StringCalculator\\StringCalculator.csproj": {
+              "projectPath": "C:\\Users\\evalderrama\\source\\Cursos\\Exeal\\StringCalculator\\StringCalculator\\StringCalculator.csproj"
+            }
+          }
         }
       },
       "warningProperties": {
