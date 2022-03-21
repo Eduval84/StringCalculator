@@ -26,7 +26,8 @@
         ],
         "sources": {
           "https://aidacanarias.pkgs.visualstudio.com/_packaging/aida-dev-packages/nuget/v3/index.json": {},
-          "https://api.nuget.org/v3/index.json": {}
+          "https://api.nuget.org/v3/index.json": {},
+          "https://www.myget.org/F/aidacanarias/auth/91440d25-96ec-4958-861c-c4cac6f1192c/api/v2": {}
         },
         "frameworks": {
           "net5.0": {
@@ -44,6 +45,10 @@
         "net5.0": {
           "targetAlias": "net5.0",
           "dependencies": {
+            "FluentAssertions": {
+              "target": "Package",
+              "version": "[6.5.1, )"
+            },
             "Microsoft.NET.Test.Sdk": {
               "target": "Package",
               "version": "[16.9.4, )"

@@ -1,7 +1,6 @@
 C:\Users\evalderrama\source\Cursos\Exeal\StringCalculator\StringCalculator\bin\Debug\StringCalculator.exe.config
 C:\Users\evalderrama\source\Cursos\Exeal\StringCalculator\StringCalculator\bin\Debug\StringCalculator.exe
 C:\Users\evalderrama\source\Cursos\Exeal\StringCalculator\StringCalculator\bin\Debug\StringCalculator.pdb
-C:\Users\evalderrama\source\Cursos\Exeal\StringCalculator\StringCalculator\obj\Debug\StringCalculator.csproj.AssemblyReference.cache
 C:\Users\evalderrama\source\Cursos\Exeal\StringCalculator\StringCalculator\obj\Debug\StringCalculator.csproj.CoreCompileInputs.cache
 C:\Users\evalderrama\source\Cursos\Exeal\StringCalculator\StringCalculator\obj\Debug\StringCalculator.exe
 C:\Users\evalderrama\source\Cursos\Exeal\StringCalculator\StringCalculator\obj\Debug\StringCalculator.pdb

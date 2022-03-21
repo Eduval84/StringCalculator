@@ -2,7 +2,7 @@ using Xunit;
 
 namespace TestStringCalculator
 {
-    public class UnitTest1
+    public class StringCalculatorSpecs
     {
         [Fact]
         public void Test1()
