@@ -8,9 +8,18 @@
 
         public int Add(string numbers)
         {
+            var givenNumbers = numbers.Split(',');
+            int result = 0;
+
             if (numbers == string.Empty)
-                return 0;
-            return 3;
+                return result;
+
+            foreach (var num in givenNumbers )
+            {
+                result += int.Parse(num);
+            }
+
+            return result;
         }
     }
 }
