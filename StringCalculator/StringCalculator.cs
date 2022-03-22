@@ -4,25 +4,38 @@ namespace StringCalculator
 {
     public class StringCalculator
     {
-        
+        private char[] _delimiters;
+        private const int Result = 0;
+        private string[] _givenNumbers;
+
         public static void Main(string[] args)
         {
         }
 
         public int Add(string numbers)
         {
-            var givenNumbers = numbers.Split(new char[] {',', '\n'});
-            int result = 0;
+            _givenNumbers = SplitNumbers(numbers);
 
             if (numbers == string.Empty)
-                return result;
+                return Result;
 
-            foreach (var num in givenNumbers )
+            return sumNumbers(_givenNumbers, Result);
+        }
+
+        private int sumNumbers(string[] givenNumbers, int result)
+        {
+            foreach (var num in givenNumbers)
             {
                 result += int.Parse(num);
             }
 
             return result;
+        }
+
+        private string[] SplitNumbers(string numbers)
+        {
+            _delimiters = new char[] {',', '\n'};
+            return numbers.Split(_delimiters);
         }
     }
 }
