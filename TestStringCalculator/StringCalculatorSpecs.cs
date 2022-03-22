@@ -60,5 +60,15 @@ namespace TestStringCalculator
 
             _result.Should().Be(3);
         }
+
+        [Fact]
+        public void thtrow_negative_not_allowed_exception_when_add_a_negative_number_in_input()
+        {
+            _givenInput = "1,4,-1";
+
+            Action whenAct = () => _stringCalculator.Add(_givenInput);
+
+            whenAct.Should().Throw<NegativeNotAllowed>().Where(ex => ex.Message == "-1");
+        }
     }
 }
