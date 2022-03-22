@@ -1,25 +1,59 @@
-﻿using System.Text.RegularExpressions;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace StringCalculator
 {
     public class StringCalculator
     {
-        private char[] _delimiters;
+        private char[] _defaultDelimiters = new char[] { ',', '\n' };
+        private List<char> _customDelimiters = new List<char>();
         private const int Result = 0;
+        private string _numbers;
         private string[] _givenNumbers;
 
         public static void Main(string[] args)
         {
         }
 
-        public int Add(string numbers)
+        public int Add(string givenInput)
         {
-            _givenNumbers = SplitNumbers(numbers);
+            _numbers = givenInput;
+            GetCustomDelimiters(_numbers);
+            _givenNumbers = SplitNumbers(_numbers);
 
-            if (numbers == string.Empty)
+            if (_numbers == string.Empty)
                 return Result;
 
             return sumNumbers(_givenNumbers, Result);
+        }
+
+        private void GetCustomDelimiters(string numbers)
+        {
+            _customDelimiters = _defaultDelimiters.ToList();
+            if (numbers.Contains("//"))
+            {
+                _numbers = numbers.Replace("//", string.Empty);
+                var customDelimiters = _numbers.Split('\n').First();
+                _numbers = ReplaceFirstOccurrance(_numbers, customDelimiters);
+                _numbers = _numbers.Replace("\n", string.Empty);
+                _customDelimiters.Add(customDelimiters.First());
+                _defaultDelimiters = _customDelimiters.ToArray();
+            }
+        }
+
+        public static string ReplaceFirstOccurrance(string sourceString, string removeString)
+        {
+            int index = sourceString.IndexOf(removeString);
+            string cleanPath = (index < 0)
+                ? sourceString
+                : sourceString.Remove(index, removeString.Length);
+            return cleanPath;
+        }
+
+        private string[] SplitNumbers(string numbers)
+        {
+            return numbers.Split(_defaultDelimiters);
         }
 
         private int sumNumbers(string[] givenNumbers, int result)
@@ -32,10 +66,5 @@ namespace StringCalculator
             return result;
         }
 
-        private string[] SplitNumbers(string numbers)
-        {
-            _delimiters = new char[] {',', '\n'};
-            return numbers.Split(_delimiters);
-        }
     }
 }

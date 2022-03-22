@@ -51,7 +51,6 @@ namespace TestStringCalculator
             _result.Should().Be(6);
         }
 
-        //Para cambiar de separador el comienzo de la cadena deberá contener una línea separada con este formato "//[delimiter]\n[numbers...]"
         [Fact]
         public void CanSupoortDiferentSplitsStrings()
         {
