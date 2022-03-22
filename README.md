@@ -15,7 +15,7 @@ El método puede tomar hasta dos números, separados por comas y debe devolver s
 
 Pistas:
 
-+ Comienza con el test mas simple para una cadena vaciía, sigue provando el caso de un número y luego el caso de dos números.
++ Comienza con el test mas simple para una cadena vacía, sigue provando el caso de un número y luego el caso de dos números.
 + Recuerda resolver las tareas de la forma más simple posible, para forzarte a escrbir casos de tes que quizá no se te ocurririan de otra forma.
 + Recuerda refactorizar tras lograr llegar a verde.
 
@@ -29,7 +29,7 @@ la siguente entrada es correcta "1\n2,3" ( el resultado seria 6)
 
 Para cambiar de separador el comienzo de la cadena deberá contener una línea separada con este formato "//[delimiter]\n[numbers...]"
 
-Por ejemplo "//;\n1;2" deeria devolver 3 siendo el separador por defecto ";"
+Por ejemplo "//;\n1;2" deberia devolver 3 siendo el separador por defecto ";"
 
 La primera linea es opcional. Todos los escenarios implementados hasta el momento deben seguir funcionando.
 
