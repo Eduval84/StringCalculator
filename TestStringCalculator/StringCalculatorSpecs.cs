@@ -39,5 +39,15 @@ namespace TestStringCalculator
 
             result.Should().Be(6);
         }
+
+        [Fact]
+        public void EscapeSecuenceCanSplitNumbers()
+        {
+            _givenInput = "1\n2,3";
+
+            var result = _stringCalculator.Add(_givenInput);
+
+            result.Should().Be(6);
+        }
     }
 }
