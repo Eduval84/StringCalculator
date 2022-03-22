@@ -1,4 +1,5 @@
 using System;
+using System.Xml.XPath;
 using FluentAssertions;
 using Xunit;
 
@@ -68,7 +69,7 @@ namespace TestStringCalculator
 
             Action whenAct = () => _stringCalculator.Add(_givenInput);
 
-            whenAct.Should().Throw<NegativeNotAllowed>().Where(ex => ex.Message == "-1");
+            whenAct.Should().Throw<NegativeNotAllowed>().Where(x => x.Message == "-1");
         }
     }
 }

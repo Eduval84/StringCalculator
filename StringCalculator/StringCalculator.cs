@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using TestStringCalculator;
 
 namespace StringCalculator
 {
@@ -11,6 +12,7 @@ namespace StringCalculator
         private const int Result = 0;
         private string _numbers;
         private string[] _givenNumbers;
+        private List<string> _negativeNumbers;
 
         public static void Main(string[] args)
         {
@@ -60,8 +62,16 @@ namespace StringCalculator
         {
             foreach (var num in givenNumbers)
             {
+                if (int.Parse(num) <= 0)
+                {
+                    _negativeNumbers = new List<string>();
+                    _negativeNumbers.Add(num);
+                }
                 result += int.Parse(num);
             }
+
+            if (!(_negativeNumbers is null))
+                throw new NegativeNotAllowed(string.Join(",",_negativeNumbers));
 
             return result;
         }
