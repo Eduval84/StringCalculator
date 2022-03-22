@@ -9,25 +9,26 @@ namespace TestStringCalculator
 
         private readonly StringCalculator.StringCalculator _stringCalculator = new();
         private string _givenInput;
+        private int _result;
 
         [Fact]
         public void StringEmptyShouldBe0()
         {
             _givenInput = string.Empty;
 
-            var result = _stringCalculator.Add(_givenInput);
+            _result = _stringCalculator.Add(_givenInput);
 
-            result.Should().Be(0);
+            _result.Should().Be(0);
         }
 
         [Fact]
         public void String1ComaString2ShouldBe3()
         {
-            var givenInput = "1,2";
+            _givenInput = "1,2";
 
-            var result = _stringCalculator.Add(givenInput);
+            _result = _stringCalculator.Add(_givenInput);
 
-            result.Should().Be(3);
+            _result.Should().Be(3);
         }
 
         [Fact]
@@ -35,9 +36,9 @@ namespace TestStringCalculator
         {
             _givenInput = "1,2,3";
 
-            var result = _stringCalculator.Add(_givenInput);
+            _result = _stringCalculator.Add(_givenInput);
 
-            result.Should().Be(6);
+            _result.Should().Be(6);
         }
 
         [Fact]
@@ -45,9 +46,20 @@ namespace TestStringCalculator
         {
             _givenInput = "1\n2,3";
 
-            var result = _stringCalculator.Add(_givenInput);
+            _result = _stringCalculator.Add(_givenInput);
 
-            result.Should().Be(6);
+            _result.Should().Be(6);
+        }
+
+        //Para cambiar de separador el comienzo de la cadena deberá contener una línea separada con este formato "//[delimiter]\n[numbers...]"
+        [Fact]
+        public void CanSupoortDiferentSplitsStrings()
+        {
+            _givenInput = "//;\n1;2";
+
+            _result = _stringCalculator.Add(_givenInput);
+
+            _result.Should().Be(3);
         }
     }
 }
