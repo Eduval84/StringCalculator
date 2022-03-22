@@ -62,7 +62,7 @@ namespace TestStringCalculator
         }
 
         [Fact]
-        public void thtrow_negative_not_allowed_exception_when_add_a_negative_number_in_input()
+        public void throw_negative_not_allowed_exception_when_add_a_negative_number_in_input()
         {
             _givenInput = "1,4,-1";
 
