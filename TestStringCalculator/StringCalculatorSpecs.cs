@@ -76,5 +76,15 @@ namespace TestStringCalculator
 
             _result.Should().Be(expectedResult);
         }
+
+        [Theory]
+        [InlineData("//[***]\n1***2***3", 6)]
+        [InlineData("//[##]\n1##3##4", 8)]
+        public void allow_a_custom_delimiter_whit_any_length(string givenInput, int expecteResutl)
+        {
+            _result = _stringCalculator.Add(givenInput);
+
+            _result.Should().Be(expecteResutl);
+        }
     }
 }
