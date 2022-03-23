@@ -43,7 +43,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="NegativedNotAllowed.cs" />
+    <Compile Include="Delimiter.cs" />
+    <Compile Include="NegativeNotAllowed.cs" />
+    <Compile Include="Numbers.cs" />
     <Compile Include="StringCalculator.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

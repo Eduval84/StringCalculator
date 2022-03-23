@@ -1,18 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using TestStringCalculator;
-
-namespace StringCalculator
+﻿namespace StringCalculator
 {
     public class StringCalculator
     {
-        private char[] _defaultDelimiters = new char[] { ',', '\n' };
-        private List<char> _customDelimiters = new List<char>();
-        private const int Result = 0;
-        private string _numbers;
         private string[] _givenNumbers;
-        private List<string> _negativeNumbers= new List<string>();
+        public readonly Numbers _numbers = new Numbers();
+        private readonly Delimiter _delimiter;
+
+        public StringCalculator()
+        {
+            _delimiter = new Delimiter(this);
+        }
 
         public static void Main(string[] args)
         {
@@ -20,60 +17,14 @@ namespace StringCalculator
 
         public int Add(string givenInput)
         {
-            _numbers = givenInput;
-            GetCustomDelimiters(_numbers);
-            _givenNumbers = SplitNumbers(_numbers);
+            _numbers.givenNumbers = givenInput;
+            _delimiter.GetCustomDelimiters(_numbers.givenNumbers);
+            _givenNumbers = _delimiter.SplitNumbers(_numbers.givenNumbers);
 
-            if (_numbers == string.Empty)
-                return Result;
+            if (_numbers.givenNumbers == string.Empty)
+                return 0;
 
-            return sumNumbers(_givenNumbers, Result);
+            return _numbers.sumNumbers(_givenNumbers);
         }
-
-        private void GetCustomDelimiters(string numbers)
-        {
-            _customDelimiters = _defaultDelimiters.ToList();
-            if (numbers.Contains("//"))
-            {
-                _numbers = numbers.Replace("//", string.Empty);
-                var customDelimiters = _numbers.Split('\n').First();
-                _numbers = ReplaceFirstOccurrance(_numbers, customDelimiters);
-                _numbers = _numbers.Replace("\n", string.Empty);
-                _customDelimiters.Add(customDelimiters.First());
-                _defaultDelimiters = _customDelimiters.ToArray();
-            }
-        }
-
-        public static string ReplaceFirstOccurrance(string sourceString, string removeString)
-        {
-            int index = sourceString.IndexOf(removeString);
-            string cleanPath = (index < 0)
-                ? sourceString
-                : sourceString.Remove(index, removeString.Length);
-            return cleanPath;
-        }
-
-        private string[] SplitNumbers(string numbers)
-        {
-            return numbers.Split(_defaultDelimiters);
-        }
-
-        private int sumNumbers(string[] givenNumbers, int result)
-        {
-            foreach (var num in givenNumbers)
-            {
-                if (int.Parse(num) <= 0)
-                {
-                    _negativeNumbers.Add(num);
-                }
-                result += int.Parse(num);
-            }
-
-            if (_negativeNumbers.Any())
-                throw new NegativeNotAllowed(string.Join(",",_negativeNumbers));
-
-            return result;
-        }
-
     }
 }
