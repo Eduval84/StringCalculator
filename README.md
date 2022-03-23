@@ -51,11 +51,11 @@ Es decir, sumar 2 + 1001 = 2
 
 ## 7-Los speparadores ahora pueden ser de cualqueir longitud si se especifican con el siguiente formato: "//[delimiter]\n"
 
-Por ejemplo "//[***]\n1***2***3" debe devolver 6.
+Por ejemplo "// [ *** ] \n1***2***3" debe devolver 6.
 
 ## 8-Soportar múltiples separadores con este formato "//[delim1][delim2]\n"
 
-Por ejemplo "//[*][%]\n1*2%3" debe devolver 6
+Por ejemplo "//[ * ][%]\n1*2%3" debe devolver 6
 
 ## 9-Asegurate que soportan múltiples separadores cuando la longitud es mayor a un caracter.
 
