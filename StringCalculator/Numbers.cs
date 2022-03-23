@@ -19,20 +19,22 @@ namespace StringCalculator
         {
             int result= 0;
 
+            CheckForNegativeNumbers(givenNumbers);
+
             foreach (var num in givenNumbers)
             {
-                if (int.Parse(num) <= 0)
-                {
-                    _negativeNumbers.Add(num);
-                }
                 if (int.Parse(num) <= 1000)
                     result += int.Parse(num);
             }
+            return result;
+        }
+
+        private void CheckForNegativeNumbers(string[] givenNumbers)
+        {
+            _negativeNumbers = givenNumbers.Where(n => int.Parse(n) < 0).ToList();
 
             if (_negativeNumbers.Any())
-                throw new NegativeNotAllowed(string.Join(",",_negativeNumbers));
-
-            return result;
+                throw new NegativeNotAllowed(string.Join(",", _negativeNumbers));
         }
     }
 }
