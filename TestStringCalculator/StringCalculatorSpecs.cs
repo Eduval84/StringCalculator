@@ -68,6 +68,7 @@ namespace TestStringCalculator
         [Theory]
         [InlineData("1,1000,3",1004)]
         [InlineData("1,1001,3",4)]
+        [InlineData("1,50001,3", 4)]
 
         public void numbers_greater_than_1000_must_be_ignored(string givenInput, int expectedResult)
         {
