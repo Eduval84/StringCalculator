@@ -13,7 +13,7 @@ namespace TestStringCalculator
         private int _result;
 
         [Fact]
-        public void StringEmptyShouldBe0()
+        public void string_empty_input_should_be_0()
         {
             _givenInput = string.Empty;
 
@@ -22,54 +22,46 @@ namespace TestStringCalculator
             _result.Should().Be(0);
         }
 
-        [Fact]
-        public void String1ComaString2ShouldBe3()
+        [Theory]
+        [InlineData("1,2",3)]
+        [InlineData("3,5", 8)]
+        [InlineData("1,2,3", 6)]
+        public void given_positive_strings_numbers_separate_by_comas_get_a_int_result_with_the_sum_of_all_of_them(string givenNumbers, int expected)
         {
-            _givenInput = "1,2";
+            _result = _stringCalculator.Add(givenNumbers);
 
-            _result = _stringCalculator.Add(_givenInput);
-
-            _result.Should().Be(3);
+            _result.Should().Be(expected);
         }
 
-        [Fact]
-        public void AddCanReciveMultipleNumbers()
+        [Theory]
+        [InlineData("1\n2,4",7)]
+        [InlineData("2\n2,3\n2", 9)]
+        public void given_positive_strings_numbers_separate_by_comas_or_scape_secuence_get_a_int_result_with_the_sum_of_all_of_them(string givenNumbers, int expected)
         {
-            _givenInput = "1,2,3";
+            _result = _stringCalculator.Add(givenNumbers);
 
-            _result = _stringCalculator.Add(_givenInput);
-
-            _result.Should().Be(6);
+            _result.Should().Be(expected);
         }
 
-        [Fact]
-        public void EscapeSecuenceCanSplitNumbers()
+        [Theory]
+        [InlineData("//;\n1;2",3)]
+        [InlineData("//@\n3@3",6)]
+        public void allow_a_custom_delimiter_when_given_input_starts_with_double_bar(string givenInput, int expected)
         {
-            _givenInput = "1\n2,3";
+          
+            _result = _stringCalculator.Add(givenInput);
 
-            _result = _stringCalculator.Add(_givenInput);
-
-            _result.Should().Be(6);
+            _result.Should().Be(expected);
         }
 
-        [Fact]
-        public void CanSupoortDiferentSplitsStrings()
+        [Theory]
+        [InlineData("1,4,-1","-1")]
+        [InlineData("-2,6,-3", "-2,-3")]
+        public void throw_negative_not_allowed_exception_with_a_message_with_the_negative_numbers_recibed_in_the_given_input(string givenInput, string expectedExceptionMessage)
         {
-            _givenInput = "//;\n1;2";
+            Action whenAct = () => _stringCalculator.Add(givenInput);
 
-            _result = _stringCalculator.Add(_givenInput);
-
-            _result.Should().Be(3);
-        }
-
-        [Fact]
-        public void throw_negative_not_allowed_exception_when_add_a_negative_number_in_input()
-        {
-            _givenInput = "1,4,-1";
-
-            Action whenAct = () => _stringCalculator.Add(_givenInput);
-
-            whenAct.Should().Throw<NegativeNotAllowed>().Where(x => x.Message == "-1");
+            whenAct.Should().Throw<NegativeNotAllowed>().Where(x => x.Message == expectedExceptionMessage);
         }
     }
 }
